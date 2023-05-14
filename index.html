@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <p>abc</p>
+    <p id="name"></p>
+    <p id="city"></p>
+    <p id="phone"></p>
+    <p id="age"></p>
+    <button id="hien">Hiện</button>
+    <Script>
+        var theP1 = document.getElementById("name");
+        var theP2 = document.getElementById("city");
+        var theP3 = document.getElementById("phone");
+        var theP4 = document.getElementById("age");
+
+        alert("Chào mừng bạn đến với ứng dụng Javascript đầu tiên");
+
+        var ten = prompt("Hãy nhập tên");
+        var thanhpho = prompt("Hãy nhập thành phố của bạn");
+        var sdt = prompt("Hãy nhập số điện thoại của bạn");
+
+        theP1.innerHTML = ten;
+        theP2.innerHTML = thanhpho;
+        theP3.innerHTML = sdt;
+        
+        var yeucaunhap = true;
+        while (yeucaunhap) {
+            var now = new Date().getFullYear();
+            var namSinh = prompt("Hãy nhập năm sinh của bạn");
+            theP4.innerHTML = namSinh;
+            if (namSinh > now) {
+               theP4.innerHTML = "Đừng có mồm điêu năm nay là năm" + now;
+            }else {
+                yeucaunhap = false;
+            }
+        }
+        document.getElementById("hien").onclick = hienan;
+        function hienan() {
+            console.log("Đã bấm nút");
+        }
+    </Script>
 </body>
+
 </html>
