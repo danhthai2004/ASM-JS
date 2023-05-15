@@ -34,11 +34,11 @@
         while (yeucaunhap) {
             var now = new Date().getFullYear();
             var namSinh = prompt("Hãy nhập năm sinh của bạn");
-            theP4.innerHTML = namSinh;
             if (namSinh > now) {
-               theP4.innerHTML = "Đừng có mồm điêu năm nay là năm" + now;
+              alert("Đừng có mồm điêu năm nay là năm " + now);
             }else {
                 yeucaunhap = false;
+                theP4.innerHTML = namSinh;
             }
         }
         document.getElementById("hien").onclick = hienan;
