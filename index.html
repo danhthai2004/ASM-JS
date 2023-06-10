@@ -6,46 +6,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <p id="name"></p>
-    <p id="city"></p>
-    <p id="phone"></p>
-    <p id="age"></p>
-    <button id="hien">Hiện</button>
-    <Script>
-        var theP1 = document.getElementById("name");
-        var theP2 = document.getElementById("city");
-        var theP3 = document.getElementById("phone");
-        var theP4 = document.getElementById("age");
+    <p>Tên: </p><input type="text">
+    <p>DOB: </p><input type="text">
+    <p>Điểm Lý: </p><input type="text">
+    <p>Điểm Toán: </p><input type="text">
+    <p>Điểm Hoá: </p><input type="text">
+    <div>
+        <button>Nhập</button>
+        <button>Tính điểm trung bình</button>
+        <button>Xác định học lực</button>
+    </div>
 
-        alert("Chào mừng bạn đến với ứng dụng Javascript đầu tiên");
+    <table style="width: 100%">
+        <thead>
+            <tr>
+                <th>Họ và tên</th>
+                <th>Ngày tháng năm sinh</th>
+                <th>Điểm toán</th>
+                <th>Điểm lý</th>
+                <th>Điểm hoá</th>
+                <th>Điểm trung bình</th>
+                <th>Học lực</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
 
-        var ten = prompt("Hãy nhập tên");
-        var thanhpho = prompt("Hãy nhập thành phố của bạn");
-        var sdt = prompt("Hãy nhập số điện thoại của bạn");
+        </tbody>
+    </table>
+    <script>
+        function Addrow() {
+            var tbody = document.getElementById("tbody");
+            console.log(tbody);
 
-        theP1.innerHTML = ten;
-        theP2.innerHTML = thanhpho;
-        theP3.innerHTML = sdt;
-        
-        var yeucaunhap = true;
-        while (yeucaunhap) {
-            var now = new Date().getFullYear();
-            var namSinh = prompt("Hãy nhập năm sinh của bạn");
-            if (namSinh > now) {
-              alert("Đừng có mồm điêu năm nay là năm " + now);
-            }else {
-                yeucaunhap = false;
-                theP4.innerHTML = namSinh;
-            }
+            var tr1 = document.createElement("tr");
+            var tdHoten = document.createElement("td");
+            var tdNgaysinh = document.createElement("td");
+            var tdDiemtoan = document.createElement("td");
+            var tdDiemly = document.createElement("td");
+            var tdDiemhoa = document.createElement("td");
+            var tdDiemTB = document.createElement("td");
+            var tdHocluc = document.createElement("td");
+
+            tbody.append(tr1);
+            tr1.append(tdHoten);
+            tr1.append(tdNgaysinh);
+            tr1.append(tdDiemtoan);
+            tr1.append(tdDiemly);
+            tr1.append(tdDiemhoa);
+            tr1.append(tdDiemTB);
+            tr1.append(tdHocluc);
+
+            tdHoten.innerHTML = "Dang Tran Danh Thai";
+            tdNgaysinh.innerHTML = "06/03/2004";
+            tdDiemtoan.innerHTML = "7";
+            tdDiemly.innerHTML = "8";
+            tdDiemhoa.innerHTML = "9";
+            tdDiemTB.innerHTML = (tdDiemtoan + tdDiemly + tdDiemhoa) / 3;
         }
-        document.getElementById("hien").onclick = hienan;
-        function hienan() {
-            console.log("Đã bấm nút");
-        }
-    </Script>
+    </script>
 </body>
 
 </html>
