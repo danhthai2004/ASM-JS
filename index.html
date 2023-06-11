@@ -16,7 +16,7 @@
     <p>Điểm Toán: </p><input type="text">
     <p>Điểm Hoá: </p><input type="text">
     <div>
-        <button>Nhập</button>
+        <button id="nhap">Nhập</button>
         <button>Tính điểm trung bình</button>
         <button>Xác định học lực</button>
     </div>
@@ -65,8 +65,9 @@
             tdDiemtoan.innerHTML = "7";
             tdDiemly.innerHTML = "8";
             tdDiemhoa.innerHTML = "9";
-            tdDiemTB.innerHTML = (tdDiemtoan + tdDiemly + tdDiemhoa) / 3;
-        }
+        };
+        var nhap = document.getElementById("nhap");
+        nhap.onclick=Addrow; 
     </script>
 </body>
 
