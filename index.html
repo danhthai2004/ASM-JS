@@ -15,10 +15,13 @@
     <p>Điểm Lý: </p><input type="text" id="diemly">
     <p>Điểm Toán: </p><input type="text" id="diemtoan">
     <p>Điểm Hoá: </p><input type="text" id="diemhoa">
+    <br>
+    <br>
     <div>
         <button id="nhap">Nhập</button>
         <button>Tính điểm trung bình</button>
         <button>Xác định học lực</button>
+        <hr>
     </div>
 
     <table style="width: 100%">
@@ -38,11 +41,15 @@
         </tbody>
     </table>
     <script>
+        var index = 1;
+
         function Addrow() {
             var tbody = document.getElementById("tbody");
             console.log(tbody);
 
             var tr1 = document.createElement("tr");
+            tr1.id= index;
+
             var tdHoten = document.createElement("td");
             var tdNgaysinh = document.createElement("td");
             var tdDiemtoan = document.createElement("td");
@@ -50,6 +57,14 @@
             var tdDiemhoa = document.createElement("td");
             var tdDiemTB = document.createElement("td");
             var tdHocluc = document.createElement("td");
+
+            tdDiemtoan.id="diemToan" + index;
+            tdDiemly.id="diemLy" + index;
+            tdDiemhoa.id="diemHoa" + index;
+            tdDiemTB.id="diemTB" + index;
+            tdHocluc.id="hocLuc" + index;
+
+            index = index + 1;
 
             tbody.append(tr1);
             tr1.append(tdHoten);
@@ -68,6 +83,10 @@
         };
         var nhap = document.getElementById("nhap");
         nhap.onclick=Addrow; 
+
+        function diemTB() {
+            
+        }
     </script>
 </body>
 
