@@ -19,8 +19,8 @@
     <br>
     <div>
         <button id="nhap">Nhập</button>
-        <button>Tính điểm trung bình</button>
-        <button>Xác định học lực</button>
+        <button id="tinhdiemtrungbinh">Tính điểm trung bình</button>
+        <button id="xephocluc">Xác định học lực</button>
         <hr>
     </div>
 
@@ -48,7 +48,7 @@
             console.log(tbody);
 
             var tr1 = document.createElement("tr");
-            tr1.id= index;
+            tr1.id = index;
 
             var tdHoten = document.createElement("td");
             var tdNgaysinh = document.createElement("td");
@@ -58,11 +58,11 @@
             var tdDiemTB = document.createElement("td");
             var tdHocluc = document.createElement("td");
 
-            tdDiemtoan.id="diemToan" + index;
-            tdDiemly.id="diemLy" + index;
-            tdDiemhoa.id="diemHoa" + index;
-            tdDiemTB.id="diemTB" + index;
-            tdHocluc.id="hocLuc" + index;
+            tdDiemtoan.id = "diemToan" + index;
+            tdDiemly.id = "diemLy" + index;
+            tdDiemhoa.id = "diemHoa" + index;
+            tdDiemTB.id = "diemTB" + index;
+            tdHocluc.id = "hocLuc" + index;
 
             index = index + 1;
 
@@ -82,11 +82,42 @@
             tdDiemhoa.innerHTML = "9";
         };
         var nhap = document.getElementById("nhap");
-        nhap.onclick=Addrow; 
+        nhap.onclick = Addrow;
 
-        function diemTB() {
-            
+        function DiemTB() {
+            for (var i = 1; i <= index; i++) {
+                var dToan = document.getElementById("diemToan" + i);
+                var dLy = document.getElementById("diemLy" + i);
+                var dHoa = document.getElementById("diemHoa" + i);
+                var dTrungbinh = document.getElementById("diemTB" + i);
+                console.log(dToan.innerHTML);
+                console.log(dLy.innerHTML);
+                console.log(dHoa.innerHTML);
+                console.log(dTrungbinh.innerHTML);
+
+                dTrungbinh.innerHTML = (dToan.innerHTML - (-dLy.innerHTML) - (-dHoa.innerHTML)) / 3;
+            }
         }
+        var DiemTrungBinh = document.getElementById("tinhdiemtrungbinh");
+        DiemTrungBinh.onclick = DiemTB;
+
+        function HocLuc() {
+            for (var i = 1; i <= index; i++) {
+                var dTrungbinh = document.getElementById("diemTB" + i);
+                var hluc = document.getElementById("hocLuc" + i);
+                if (dTrungbinh.innerHTML >= 8) {
+                    hluc.innerHTML = "Giỏi";
+                } else if (dTrungbinh.innerHTML >= 6.5 && dTrungbinh.innerHTML < 8) {
+                    hluc.innerHTML = "Khá";
+                } else if (dTrungbinh.innerHTML >= 5 && dTrungbinh.innerHTML < 6.5) {
+                    hluc.innerHTML = "Trung Bình";
+                } else {
+                    hluc.innerHTML = "Yếu";
+                }
+            }
+        }
+        var HL = document.getElementById("xephocluc");
+        HL.onclick = HocLuc;
     </script>
 </body>
 
